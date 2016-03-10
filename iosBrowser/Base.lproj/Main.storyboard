@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,57 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nF3-e8-HIV">
+                                <rect key="frame" x="0.0" y="60" width="600" height="496"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DGd-wt-GTx">
+                                <rect key="frame" x="0.0" y="30" width="600" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ig-Og-9N3">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="T8e-hc-kVk"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="←" id="IPv-yw-zmG"/>
+                                    <barButtonItem title="→" id="oea-be-3Ij"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="NHJ-R2-oS4"/>
+                                    <barButtonItem systemItem="refresh" id="tSZ-Bp-plP"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DGd-wt-GTx" secondAttribute="trailing" id="2d6-gu-GRh"/>
+                            <constraint firstItem="nF3-e8-HIV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9CO-5p-A20"/>
+                            <constraint firstItem="nF3-e8-HIV" firstAttribute="top" secondItem="DGd-wt-GTx" secondAttribute="bottom" id="BOY-6L-Hkh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nF3-e8-HIV" secondAttribute="trailing" id="C5E-iE-ujt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DGd-wt-GTx" secondAttribute="trailing" constant="10" id="D5R-kb-Jk1"/>
+                            <constraint firstItem="nF3-e8-HIV" firstAttribute="top" secondItem="DGd-wt-GTx" secondAttribute="bottom" constant="10" id="JhM-br-XsT"/>
+                            <constraint firstItem="DGd-wt-GTx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Rsr-Ro-OLY"/>
+                            <constraint firstItem="nF3-e8-HIV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="S7x-pG-ejP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1Ig-Og-9N3" secondAttribute="bottom" id="Uxb-ne-BwU"/>
+                            <constraint firstItem="DGd-wt-GTx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vfq-9D-weU"/>
+                            <constraint firstAttribute="trailing" secondItem="1Ig-Og-9N3" secondAttribute="trailing" id="cuo-ro-rQK"/>
+                            <constraint firstAttribute="trailing" secondItem="nF3-e8-HIV" secondAttribute="trailing" id="dWi-yG-Cms"/>
+                            <constraint firstItem="DGd-wt-GTx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="eHA-R2-xh2"/>
+                            <constraint firstItem="1Ig-Og-9N3" firstAttribute="top" secondItem="nF3-e8-HIV" secondAttribute="bottom" id="gjy-Qs-OY9"/>
+                            <constraint firstItem="1Ig-Og-9N3" firstAttribute="top" secondItem="nF3-e8-HIV" secondAttribute="bottom" id="k7h-jN-pxS"/>
+                            <constraint firstItem="1Ig-Og-9N3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qfO-Ku-9kp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="D5R-kb-Jk1"/>
+                                <exclude reference="Rsr-Ro-OLY"/>
+                                <exclude reference="C5E-iE-ujt"/>
+                                <exclude reference="JhM-br-XsT"/>
+                                <exclude reference="S7x-pG-ejP"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
