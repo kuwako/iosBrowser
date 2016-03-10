@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var webView: UIWebView!
@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.webView.delegate = self
+        
         // string -> NSURL -> NSURLRequest -> webView.loadRequest
         let startUrl = "http://dotinstall.com"
         
@@ -25,6 +27,16 @@ class ViewController: UIViewController {
             let urlRequest = NSURLRequest(URL: url)
             self.webView.loadRequest(urlRequest)
         }
+        self.setupButtonsEnabled()
+    }
+    
+    func setupButtonsEnabled() {
+        self.backButton.enabled = self.webView.canGoBack
+        self.forwardButton.enabled = self.webView.canGoForward
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        self.setupButtonsEnabled()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,12 +44,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func goBack(sender: AnyObject) {
+        self.webView.goBack()
     }
 
     @IBAction func goForward(sender: AnyObject) {
+        self.webView.goForward()
     }
     
     @IBAction func reload(sender: AnyObject) {
+        self.webView.reload()
     }
 }
 
