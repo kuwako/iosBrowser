@@ -17,12 +17,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // string -> NSURL -> NSURLRequest -> webView.loadRequest
+        let startUrl = "http://dotinstall.com"
+        
+        if let url = NSURL(string: startUrl) {
+            let urlRequest = NSURLRequest(URL: url)
+            self.webView.loadRequest(urlRequest)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func goBack(sender: AnyObject) {
