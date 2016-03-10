@@ -51,6 +51,9 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="THv-LB-vkX">
+                                <rect key="frame" x="555" y="35" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -68,6 +71,8 @@
                             <constraint firstAttribute="trailing" secondItem="nF3-e8-HIV" secondAttribute="trailing" id="dWi-yG-Cms"/>
                             <constraint firstItem="DGd-wt-GTx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="eHA-R2-xh2"/>
                             <constraint firstItem="1Ig-Og-9N3" firstAttribute="top" secondItem="nF3-e8-HIV" secondAttribute="bottom" id="gjy-Qs-OY9"/>
+                            <constraint firstItem="THv-LB-vkX" firstAttribute="centerY" secondItem="DGd-wt-GTx" secondAttribute="centerY" id="isf-Re-ZOy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="THv-LB-vkX" secondAttribute="trailing" constant="5" id="izb-Lg-kkG"/>
                             <constraint firstItem="1Ig-Og-9N3" firstAttribute="top" secondItem="nF3-e8-HIV" secondAttribute="bottom" id="k7h-jN-pxS"/>
                             <constraint firstItem="1Ig-Og-9N3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qfO-Ku-9kp"/>
                         </constraints>
@@ -82,6 +87,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="THv-LB-vkX" id="jYF-gT-ZnY"/>
                         <outlet property="backButton" destination="IPv-yw-zmG" id="xjO-wN-kq7"/>
                         <outlet property="forwardButton" destination="oea-be-3Ij" id="6I9-BW-TRK"/>
                         <outlet property="textField" destination="DGd-wt-GTx" id="Qg0-bw-fQw"/>

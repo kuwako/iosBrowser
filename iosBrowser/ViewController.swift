@@ -12,22 +12,29 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var webView: UIWebView!
+    // 戻るボタン
     @IBOutlet weak var backButton: UIBarButtonItem!
+    // 進むボタン
     @IBOutlet weak var forwardButton: UIBarButtonItem!
+    // ロード中のグルグルボタン
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.webView.delegate = self
         
+        // webView表示の方針
         // string -> NSURL -> NSURLRequest -> webView.loadRequest
         let startUrl = "http://dotinstall.com"
         
+        // webview表示
         if let url = NSURL(string: startUrl) {
             let urlRequest = NSURLRequest(URL: url)
             self.webView.loadRequest(urlRequest)
         }
         self.setupButtonsEnabled()
+        self.activityIndicator.hidesWhenStopped = true
     }
     
     func setupButtonsEnabled() {
@@ -35,7 +42,12 @@ class ViewController: UIViewController, UIWebViewDelegate {
         self.forwardButton.enabled = self.webView.canGoForward
     }
     
+    func webViewDidStartLoad(webView: UIWebView) {
+        self.activityIndicator.startAnimating()
+    }
+    
     func webViewDidFinishLoad(webView: UIWebView) {
+        self.activityIndicator.stopAnimating()
         self.setupButtonsEnabled()
     }
 
