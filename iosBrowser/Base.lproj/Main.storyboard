@@ -33,10 +33,22 @@
                                     <constraint firstAttribute="height" constant="44" id="T8e-hc-kVk"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="←" id="IPv-yw-zmG"/>
-                                    <barButtonItem title="→" id="oea-be-3Ij"/>
+                                    <barButtonItem title="←" id="IPv-yw-zmG">
+                                        <connections>
+                                            <action selector="goBack:" destination="BYZ-38-t0r" id="clk-S0-qRJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="→" id="oea-be-3Ij">
+                                        <connections>
+                                            <action selector="goForward:" destination="BYZ-38-t0r" id="jqb-kR-i5e"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NHJ-R2-oS4"/>
-                                    <barButtonItem systemItem="refresh" id="tSZ-Bp-plP"/>
+                                    <barButtonItem systemItem="refresh" id="tSZ-Bp-plP">
+                                        <connections>
+                                            <action selector="reload:" destination="BYZ-38-t0r" id="qfo-bR-WtR"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -69,6 +81,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="IPv-yw-zmG" id="xjO-wN-kq7"/>
+                        <outlet property="forwardButton" destination="oea-be-3Ij" id="6I9-BW-TRK"/>
+                        <outlet property="textField" destination="DGd-wt-GTx" id="Qg0-bw-fQw"/>
+                        <outlet property="webView" destination="nF3-e8-HIV" id="AgP-Kk-5rk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
