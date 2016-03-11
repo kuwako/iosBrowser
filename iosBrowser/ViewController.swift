@@ -29,13 +29,33 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         // string -> NSURL -> NSURLRequest -> webView.loadRequest
         let startUrl = "http://dotinstall.com"
         
+        self.jumpToUrl(startUrl)
+        
         // webview表示
-        if let url = NSURL(string: startUrl) {
-            let urlRequest = NSURLRequest(URL: url)
-            self.webView.loadRequest(urlRequest)
-        }
+//        if let url = NSURL(string: startUrl) {
+//            let urlRequest = NSURLRequest(URL: url)
+//            self.webView.loadRequest(urlRequest)
+//        }
         self.setupButtonsEnabled()
         self.activityIndicator.hidesWhenStopped = true
+    }
+    
+    func jumpToUrl(urlString: String) {
+        if let url = NSURL(string: urlString) {
+            let urlRequest = NSURLRequest(URL: url)
+            self.webView.loadRequest(urlRequest)
+        } else {
+            self.showAlert("Invalid URL")
+        }
+    }
+    
+    func showAlert(message: String) {
+        // iOS8以上のみの処理
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -44,8 +64,10 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         
         if urlString == "" {
             // alert
+            self.showAlert("Please enter URL")
         } else {
             // jumpToUrl
+            self.jumpToUrl(urlString!)
             setupButtonsEnabled()
         }
         
