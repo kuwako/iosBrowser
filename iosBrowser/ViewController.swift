@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIWebViewDelegate {
+class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var webView: UIWebView!
@@ -23,6 +23,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         
         self.webView.delegate = self
+        self.textField.delegate = self
         
         // webView表示の方針
         // string -> NSURL -> NSURLRequest -> webView.loadRequest
@@ -37,6 +38,21 @@ class ViewController: UIViewController, UIWebViewDelegate {
         self.activityIndicator.hidesWhenStopped = true
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        var urlString = self.textField.text
+        urlString = urlString?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+        if urlString == "" {
+            // alert
+        } else {
+            // jumpToUrl
+            setupButtonsEnabled()
+        }
+        
+        self.textField.resignFirstResponder()
+        return true
+    }
+    
     func setupButtonsEnabled() {
         self.backButton.enabled = self.webView.canGoBack
         self.forwardButton.enabled = self.webView.canGoForward
@@ -49,6 +65,10 @@ class ViewController: UIViewController, UIWebViewDelegate {
     func webViewDidFinishLoad(webView: UIWebView) {
         self.activityIndicator.stopAnimating()
         self.setupButtonsEnabled()
+        
+        if let urlString = self.webView.request?.URL?.absoluteString {
+            self.textField.text = urlString
+        }
     }
 
     override func didReceiveMemoryWarning() {
