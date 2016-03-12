@@ -22,6 +22,12 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // ボーダーをつける
+        let topBorder = CALayer()
+        topBorder.frame = CGRectMake(0, 0, self.webView.frame.size.width, 1)
+        topBorder.backgroundColor = UIColor.lightGrayColor().CGColor
+        self.webView.layer.addSublayer(topBorder)
+        
         self.webView.delegate = self
         self.textField.delegate = self
         
@@ -32,10 +38,6 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         self.jumpToUrl(startUrl)
         
         // webview表示
-//        if let url = NSURL(string: startUrl) {
-//            let urlRequest = NSURLRequest(URL: url)
-//            self.webView.loadRequest(urlRequest)
-//        }
         self.setupButtonsEnabled()
         self.activityIndicator.hidesWhenStopped = true
     }
