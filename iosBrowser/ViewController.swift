@@ -66,6 +66,9 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
             // alert
             self.showAlert("Please enter URL")
         } else {
+            if !urlString!.hasPrefix("http://") && !urlString!.hasPrefix("https://"){
+                urlString = "http://" + urlString!
+            }
             // jumpToUrl
             self.jumpToUrl(urlString!)
             setupButtonsEnabled()
@@ -80,8 +83,25 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         self.forwardButton.enabled = self.webView.canGoForward
     }
     
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+        self.webView.stopLoading()
+        self.activityIndicator.stopAnimating()
+        
+        if error!.code != NSURLErrorCancelled {
+            self.showAlert("Network Error")
+        }
+        
+        self.updateUrlLocation()
+    }
+    
     func webViewDidStartLoad(webView: UIWebView) {
         self.activityIndicator.startAnimating()
+    }
+    
+    func updateUrlLocation() {
+        if let urlString = self.webView.request?.URL?.absoluteString {
+            self.textField.text = urlString
+        }
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
