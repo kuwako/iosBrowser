@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DGd-wt-GTx">
-                                <rect key="frame" x="0.0" y="30" width="600" height="30"/>
+                                <rect key="frame" x="5" y="30" width="590" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
                             </textField>
@@ -62,6 +62,7 @@
                             <constraint firstItem="nF3-e8-HIV" firstAttribute="top" secondItem="DGd-wt-GTx" secondAttribute="bottom" id="BOY-6L-Hkh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nF3-e8-HIV" secondAttribute="trailing" id="C5E-iE-ujt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DGd-wt-GTx" secondAttribute="trailing" constant="10" id="D5R-kb-Jk1"/>
+                            <constraint firstAttribute="trailing" secondItem="DGd-wt-GTx" secondAttribute="trailing" constant="5" id="FYm-3M-zFX"/>
                             <constraint firstItem="nF3-e8-HIV" firstAttribute="top" secondItem="DGd-wt-GTx" secondAttribute="bottom" constant="10" id="JhM-br-XsT"/>
                             <constraint firstItem="DGd-wt-GTx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Rsr-Ro-OLY"/>
                             <constraint firstItem="nF3-e8-HIV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="S7x-pG-ejP"/>
@@ -75,6 +76,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="THv-LB-vkX" secondAttribute="trailing" constant="5" id="izb-Lg-kkG"/>
                             <constraint firstItem="1Ig-Og-9N3" firstAttribute="top" secondItem="nF3-e8-HIV" secondAttribute="bottom" id="k7h-jN-pxS"/>
                             <constraint firstItem="1Ig-Og-9N3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qfO-Ku-9kp"/>
+                            <constraint firstItem="DGd-wt-GTx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="qxJ-u1-LPs"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
